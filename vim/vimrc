@@ -1,0 +1,151 @@
+" Les touches fléchées sont désactivées.
+" Utile pour apprendre vim.
+"
+" En mode normal, vous pourrez les utiliser plus tard
+" pour faire quelque chose d'utile.
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+" En mode insertion, vous pourrez enlever la
+" désactivation dans quelques semaines.
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+
+""""""""""""""""""""""""
+" Configuration Vundle "
+""""""""""""""""""""""""
+set nocompatible
+set backspace=indent,eol,start
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+  Plugin 'gmarik/Vundle.vim'
+
+ " VimWiki
+  Plugin 'vim-scripts/vimwiki'
+
+  " Orthographe et grammaire
+  Plugin 'vim-scripts/LanguageTool'
+
+
+  " Latex
+  "Plugin 'gerw/vim-latex-suite'
+
+  " Python
+  "Plugin 'kevinw/pyflakes-vim'
+  "Plugin 'vim-flake8'
+  Plugin 'klen/python-mode'
+
+call vundle#end()
+filetype plugin indent on
+
+""""""""""""""""""""""""
+" Configuration de vim "
+""""""""""""""""""""""""
+set encoding=utf-8
+set fileencoding=utf-8
+set history=100
+
+" active la souris
+set mouse=a 
+
+" Complétition  commande vim
+set wildmenu
+set wildmode=full
+
+" Délai raccourcis-clavier (tm ou timeoutlen)
+set tm=500
+
+" Coloration sythaxique
+syntax on
+colorscheme evening
+
+" Dossier du fichier comme dossier de travail
+set acd
+cab cwd cd %:h
+
+" Barre de status
+set laststatus=2
+set statusline=%<%f%m\ %r\ %h\ %w%=%l,%c\ %p%%\ [%{strftime('%a\ %d/%m/%y\ %H:%M:%S')}] " Contenu de la barre de status
+set ruler
+set showcmd
+
+" Recherche
+set incsearch
+set hlsearch
+set ignorecase
+
+" Faciliter déplacement
+set scrolloff=1
+set nostartofline
+
+" Faciliter la saisie
+set autoindent
+set smartindent
+set scrolloff=1 " Garde toujours 1 ligne visible en dessous du curseur
+" Tabulation à 2
+set ts=2
+set sw=2
+
+" Gestion des replis
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
+" On se souvient de la dernière édition
+if has("autocmd")
+  filetype plugin indent on
+    autocmd FileType text setlocal textwidth=78
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+  \ endif
+endif
+
+"""""""""""""""""
+" Programmation "
+"""""""""""""""""
+set number
+" afficher la paire de parenthèse
+set showmatch
+" Coloration de la ligne
+set cursorline
+hi CursorLine ctermbg=Blue
+
+
+""""""""""
+" Plugin "
+""""""""""
+" VimWiki
+let g:vimwiki_folding=0
+" Orthographe
+setlocal spelllang=fr
+set spellsuggest=5
+autocmd BufEnter *.tex set spell
+autocmd BufEnter *.txt set spell
+map <F5> :set nospell<Cr>
+map <F6> :setlocal spell spelllang=fr<Cr>
+map <F7> :setlocal spell spelllang=en<Cr>
+map <F8> :setlocal spell spelllang=fr,en<Cr>
+" Grammaire : LanguageTool
+let g:languagetool_jar='$HOME/.vim/progExt/LanguageTool-2.5/languagetool-commandline.jar'
+
+" Latex
+let g:tex_flavor='latex'
+set grepprg=grep\ -nH\ $*
+au BufEnter,BufNewFile *.tex exe Flatex()
+function! Flatex()
+	  source ~/.vim/config/latex.vim
+endfunction
+
+" Python 
+ab pcom # **************************************
+
+"""""""""""
+" Mapping "
+"""""""""""
+source ~/.vim/config/mappings.vim
