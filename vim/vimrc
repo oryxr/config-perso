@@ -20,13 +20,17 @@ call vundle#begin()
   set wildignore+=*.pyc
   set wildignore+=*_build/*
   set wildignore+=*/coverage/*
-  " 
+
+  " NERDTree
+  Plugin 'scrooloose/nerdtree'
+  autocmd VimEnter * NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " fermeture automatique
+
   " VimWiki
   Plugin 'vim-scripts/vimwiki'
 
   " Orthographe et grammaire
   Plugin 'vim-scripts/LanguageTool'
-
 
   " Latex
   "Plugin 'gerw/vim-latex-suite'
@@ -34,6 +38,9 @@ call vundle#begin()
   " Python
   Plugin 'klen/python-mode'
   " Plugin 'vim-scripts/Efficient-python-folding'
+
+  " MPIDE - arduino
+  Plugin 'jplaut/vim-arduino-ino'
 
 call vundle#end()
 
@@ -179,6 +186,10 @@ autocmd BufEnter *.tex set spell
 autocmd BufEnter *.txt set spell
 map <F5> :set nospell<Cr>
 map <F6> :setlocal spell spelllang=fr,en<Cr>
+imap ,z <esc>z=
+"map <Leader>zc z=
+"map <Leader>z ]z
+"map <Leader>Z [z
 " Grammaire : LanguageTool
 let g:languagetool_jar='$HOME/.vim/progExt/LanguageTool-2.5/languagetool-commandline.jar'
 
@@ -191,36 +202,17 @@ function! Flatex()
 endfunction
 
 " Python-mode
-map <Leader>g :call RopeGotoDefinition()<CR>
-let ropevim_enable_shortcuts = 1
-let g:pymode_rope_goto_def_newwin = "vnew"
-let g:pymode_rope_extended_complete = 1
-let g:pymode_breakpoint = 0
-let g:pymode_syntax = 1
-let g:pymode_syntax_builtin_objs =0
-let g:pymode_syntax_builtin_funcs = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT <C-c>
 au BufEnter,BufNewFile *.py exe Fpython()
 function! Fpython()
 	  source ~/.vim/config/python.vim
 endfunction
-" Better navigation through omnicomplete option list
-set completeopt=longest,menuone
-function! OmniPopup(action)
-  if pumvisible()
-    if a:action == 'j'
-      return "\<C-N>"
-    elseif a:action == 'k'
-      return "\<C-P>"
-    endif
-  endif
-  return a:action
-endfunction
 
-inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
-inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
-" Python folding
-set nofoldenable
+" MPIDE - arduino
+au BufEnter,BufNewFile *.pde exe Fmpide()
+au BufEnter,BufNewFile *.ino exe Fmpide()
+function! Fmpide()
+	  source ~/.vim/config/mpide.vim
+endfunction
 
 " Pour les fichiers vierges qui ont toujours les mêmes lignes au début
 augroup Shebang

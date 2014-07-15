@@ -19,4 +19,4 @@ inoremap ,cl class :<CR>""" <++> """<CR>def __init__(self<++>):<CR><tab><++><esc
 " création d'une fonction
 inoremap ,def def (self<++>):<CR><++><esc>k^f(i
 " création du main
-inoremap ,ma <esc>0iif __name__ == "__main__"<CR><tab>
+inoremap ,ma <esc>0iif __name__ == "__main__":<CR><tab>
