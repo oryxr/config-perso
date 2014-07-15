@@ -1,25 +1,9 @@
-imap ,l <esc>A
-imap ,o <esc>o
-"""""""""""""""""""""
-" Autocomplétitions "
-"""""""""""""""""""""
-inoremap ( ()<left>
-"inoremap { {}<left>
-"inoremap [ []<left>
-inoremap " ""<left>
-"inoremap ' ''<left>
-"inoremap < <><left>
-
-" Mise en page d'une ligne continu sur plusieurs lignes
-  set wrap
-
 " Type de fichiers à ignorer... ou presque
 	set wildignore+=*.dvi,*.ps,*.pdf,*.fig,*.fig.bak
 	set suffixes+=*.aux,*.log,*.toc
 
 " Quelques variables pour les programmes principaux...
-" pdflatex"
-	let $LATEXCOMPILER = "./complatex.sh"
+	let $LATEXCOMPILER = "pdflatex"
 	let $VIEWER = "evince"
 	let $PDFVIEWER = "evince"
 
@@ -41,12 +25,12 @@ inoremap " ""<left>
 	imap <F4> <ESC>:w<CR>:! $LATEXCOMPILER %<.tex<CR>a
 
 " Visualisation PDF
-	map <F3> :! $VIEWER %<.pdf &<CR><CR>
-	imap <F3> <ESC>:! $VIEWER %<.pdf &<CR><CR>a
+	map <F3> :! $VIEWER %<.pdf &<CR>
+	imap <F3> <ESC>:! $VIEWER %<.pdf &<CR>
 
-" Nettoyage des fichiers (en ligne de commande)
-	map <F7> :!rm -f %<.aux %<.cb %<.cb2 %<.dvi %<.log %<.nav %<.out %<.ps %<.snm %<.toc %<-quarto.pdf %<-miformat.ps %<.pyg %<.synctex.gz<CR><CR>
-	imap <F7> <ESC>:!rm -f %<.aux %<.cb %<.cb2 %<.dvi %<.log %<.nav %<.out %<.ps %<.snm %<.toc %<-quarto.pdf %<-miformat.ps %<.pyg %<.synctex.gz<CR><CR>a
+" Nettoyage des fichiers (en ligne de commande
+	map <F7> :!rm -f %<.aux %<.cb %<.cb2 %<.dvi %<.log %<.nav %<.out %<.ps %<.snm %<.toc %<-quarto.pdf %<-miformat.ps<CR><CR>
+	imap <F7> <ESC>:!rm -f %<.aux %<.cb %<.cb2 %<.dvi %<.log %<.nav %<.out %<.ps %<.snm %<.toc %<-quarto.pdf %<-miformat.ps<CR><CR>a
 
 """"""""""""""
 " Raccourcis "
