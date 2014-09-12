@@ -3,6 +3,7 @@
 startingDir=${PWD}
 
 ## Config vim
+sudo apt-get install vim-gtk
 #delete old configuration files
 rm ${HOME}/.vimrc
 rm -rf ${HOME}/.vim

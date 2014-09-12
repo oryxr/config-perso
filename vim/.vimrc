@@ -199,26 +199,28 @@ let g:languagetool_jar='$HOME/.vim/progExt/LanguageTool-2.5/languagetool-command
 " Latex
 let g:tex_flavor='latex'
 set grepprg=grep\ -nH\ $*
-au BufEnter,BufNewFile *.tex exe Flatex()
+au BufRead,BufNewFile *.tex exe Flatex()
 function! Flatex()
 	  source ~/.vim/config/latex.vim
 endfunction
 
 " Python-mode
-au BufEnter,BufNewFile *.py exe Fpython()
+" BufRead executes only once Fpython function avoiding to loose the current
+" line when using <C-W>w or <C-W>{h,j,k,l} ... to switch among windows
+au BufRead,BufNewFile *.py exe Fpython()
 function! Fpython()
 	  source ~/.vim/config/python.vim
 endfunction
 
 " MPIDE - arduino
-au BufEnter,BufNewFile *.pde exe Fmpide()
-au BufEnter,BufNewFile *.ino exe Fmpide()
+au BufRead,BufNewFile *.pde exe Fmpide()
+au BufRead,BufNewFile *.ino exe Fmpide()
 function! Fmpide()
 	  source ~/.vim/config/mpide.vim
 endfunction
 
 " Coffee
-au BufEnter,BufNewFile, BufReadPost *.coffee exe Fcoffee()
+au BufRead,BufNewFile, BufReadPost *.coffee exe Fcoffee()
 function! Fcoffee()
     setl foldmethod=indent nofoldenable
     setl shiftwith=2 expandtab
@@ -228,3 +230,6 @@ endfunction
 augroup Shebang
   autocmd BufNewFile *.py 0put =\"#!/usr/bin/python\<nl># -*- coding: utf-8 -*-\<nl>\"|$
 augroup END
+
+" Automatically focus on the main file (not the NERDTree)
+au VimEnter * wincmd l
