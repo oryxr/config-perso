@@ -44,6 +44,7 @@ rm ${HOME}/.zshrc
 
 #create symlinks to the configuration files
 ln -s ${PWD}/zsh/.zshrc ${HOME}/.vimrc
+sudo apt-get install zsh
 sudo cp ${PWD}/zsh/config_admin/zshrc /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zshenv /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zlogin /etc/zsh/
