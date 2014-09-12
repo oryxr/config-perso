@@ -42,6 +42,9 @@ call vundle#begin()
   " MPIDE - arduino
   Plugin 'jplaut/vim-arduino-ino'
 
+  " Coffee
+  Plugin 'kchmck/vim-coffee-script'
+
 call vundle#end()
 
 """"""""""""""""""""""""
@@ -212,6 +215,13 @@ au BufEnter,BufNewFile *.pde exe Fmpide()
 au BufEnter,BufNewFile *.ino exe Fmpide()
 function! Fmpide()
 	  source ~/.vim/config/mpide.vim
+endfunction
+
+" Coffee
+au BufEnter,BufNewFile, BufReadPost *.coffee exe Fcoffee()
+function! Fcoffee()
+    setl foldmethod=indent nofoldenable
+    setl shiftwith=2 expandtab
 endfunction
 
 " Pour les fichiers vierges qui ont toujours les mêmes lignes au début
