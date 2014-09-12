@@ -44,10 +44,10 @@ rm ${HOME}/.zshrc
 
 #create symlinks to the configuration files
 ln -s ${PWD}/zsh/.zshrc ${HOME}/.vimrc
-sudo cp ${PWD}/zsh/zshrc /etc/zsh/
-sudo cp ${PWD}/zsh/zshenv /etc/zsh/
-sudo cp ${PWD}/zsh/zlogin /etc/zsh/
-sudo cp ${PWD}/zsh/zlogout /etc/zsh/
-sudo cp ${PWD}/zsh/dir_colors /etc/
+sudo cp ${PWD}/zsh/config_admin/zshrc /etc/zsh/
+sudo cp ${PWD}/zsh/config_admin/zshenv /etc/zsh/
+sudo cp ${PWD}/zsh/config_admin/zlogin /etc/zsh/
+sudo cp ${PWD}/zsh/config_admin/zlogout /etc/zsh/
+sudo cp ${PWD}/zsh/config_admin/dir_colors /etc/
 
 cd ${startingDir}
