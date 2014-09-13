@@ -37,6 +37,9 @@ mv LanguageTool-2.6 ${HOME}/.vim/progExt/
 rm -rf LanguageTool-2.6*
 vim +PluginInstall +qall
 
+sudo ln -s ${HOME}/.vim /root/.vim
+sudo ln -s ${HOME}/.vimrc /root/.vimrc
+
 cd ${startingDir}
 
 ## Config zsh
@@ -51,5 +54,15 @@ sudo cp ${PWD}/zsh/config_admin/zshenv /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zlogin /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zlogout /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/dir_colors /etc/
+
+sudo ln -s ${HOME}/.zshrc /root/.zshrc
+
+cd ${startingDir}
+
+## Config screen
+sudo apt-get install screen
+rm ${HOME}/.screenrc
+ln -s ${PWD}/screen/.screenrc ${HOME}/.screenrc
+sudo ln -s ${HOME}/.screenrc /root/.screenrc
 
 cd ${startingDir}
