@@ -231,7 +231,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " Pour les fichiers vierges qui ont toujours les mêmes lignes au début
 augroup Shebang
-  autocmd BufNewFile *.py 0put =\"#!/usr/bin/python\<nl># -*- coding: utf-8 -*-\<nl>\"|$
+  autocmd BufNewFile *.py 0put =\"#!/usr/bin/env python3\<nl># -*- coding: utf-8 -*-\<nl>\"|$
 augroup END
 
 " Automatically focus on the main file (not the NERDTree)
