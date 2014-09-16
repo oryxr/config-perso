@@ -29,7 +29,9 @@ let g:pymode_breakpoint = 0
 let g:pymode_syntax = 1
 let g:pymode_syntax_builtin_objs =0
 let g:pymode_syntax_builtin_funcs = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT <C-c>
+
+" C901 : mccabe"
+let g:pymode_lint_options_mccabe = { 'complexity': 35 }
 
 " Better navigation through omnicomplete option list
 set completeopt=longest,menuone
@@ -45,9 +47,6 @@ function! OmniPopup(action)
 endfunction
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>

@@ -225,6 +225,9 @@ function! Fcoffee()
     setl foldmethod=indent nofoldenable
     setl shiftwith=2 expandtab
 endfunction
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " Pour les fichiers vierges qui ont toujours les mêmes lignes au début
 augroup Shebang
