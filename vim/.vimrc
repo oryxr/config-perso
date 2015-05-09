@@ -190,9 +190,9 @@ autocmd BufEnter *.txt set spell
 map <F5> :set nospell<Cr>
 map <F6> :setlocal spell spelllang=fr,en<Cr>
 imap ,z <esc>z=
-"map <Leader>zc z=
-"map <Leader>z ]z
-"map <Leader>Z [z
+map <Leader>zc z=
+map <Leader>z ]z
+map <Leader>Z [z
 " Grammaire : LanguageTool
 let g:languagetool_jar='$HOME/.vim/progExt/LanguageTool-2.5/languagetool-commandline.jar'
 

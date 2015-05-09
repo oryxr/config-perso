@@ -177,3 +177,8 @@ inoremap " ""<left>
 " Pourcentage bien espacé
 	imap ,% \,\%
 
+" Sagemath
+  imap ,smb \begin{sageblock}<CR>\end{sageblock}<ESC>O
+  imap ,sms \begin{sagesilent}<CR>\end{sagesilent}<ESC>O
+  imap ,sm \sage{}<ESC>i
+
