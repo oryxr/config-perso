@@ -2,8 +2,9 @@
 
 startingDir=${PWD}
 
+sudo apt-get update
 ## Config vim
-sudo apt-get install vim-gtk
+sudo apt-get install -y vim-gtk
 #delete old configuration files
 rm ${HOME}/.vimrc
 rm -rf ${HOME}/.vim
@@ -48,7 +49,7 @@ rm ${HOME}/.zshrc
 
 #create symlinks to the configuration files
 ln -s ${PWD}/zsh/.zshrc ${HOME}/.zshrc
-sudo apt-get install zsh
+sudo apt-get install -y zsh
 sudo cp ${PWD}/zsh/config_admin/zshrc /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zshenv /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zlogin /etc/zsh/
@@ -60,7 +61,7 @@ sudo ln -s ${HOME}/.zshrc /root/.zshrc
 cd ${startingDir}
 
 ## Config screen
-sudo apt-get install screen
+sudo apt-get install -y screen
 rm ${HOME}/.screenrc
 ln -s ${PWD}/screen/.screenrc ${HOME}/.screenrc
 sudo ln -s ${HOME}/.screenrc /root/.screenrc
