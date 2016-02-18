@@ -49,6 +49,7 @@ rm ${HOME}/.zshrc
 
 #create symlinks to the configuration files
 ln -s ${PWD}/zsh/.zshrc ${HOME}/.zshrc
+sudo git clone https://github.com/olivierverdier/zsh-git-prompt.git /opt/zsh-git-prompt
 sudo apt-get install -y zsh
 sudo cp ${PWD}/zsh/config_admin/zshrc /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zshenv /etc/zsh/
