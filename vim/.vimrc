@@ -23,8 +23,10 @@ call vundle#begin()
 
   " NERDTree
   Plugin 'scrooloose/nerdtree'
+  Plugin 'Xuyuanp/nerdtree-git-plugin'
   autocmd VimEnter * NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " fermeture automatique
+  let NERDTreeQuitOnOpen=1
 
   " VimWiki
   Plugin 'vim-scripts/vimwiki'

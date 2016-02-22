@@ -40,6 +40,7 @@ cd ${startingDir}
 ## Config zsh
 #delete old configuration files
 rm ${HOME}/.zshrc
+ln -s ${PWD}/zsh/.zshrc ${HOME}/.zshrc
 
 cd ${startingDir}
 
