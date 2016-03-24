@@ -27,4 +27,5 @@ umask 022
 #export no_proxy="exemple.org"
 
 # De la couleur pour grep
-export GREP_OPTIONS='--color=auto'
+#export GREP_OPTIONS='--color=auto' : DEPRECIATE
+alias grep='grep --color=auto'
