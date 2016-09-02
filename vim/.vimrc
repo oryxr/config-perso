@@ -29,23 +29,23 @@ call vundle#begin()
   let NERDTreeQuitOnOpen=1
 
   " VimWiki
-  Plugin 'vim-scripts/vimwiki'
+  " Plugin 'vim-scripts/vimwiki'
 
   " Orthographe et grammaire
-  Plugin 'vim-scripts/LanguageTool'
+  " Plugin 'vim-scripts/LanguageTool'
 
   " Latex
   "Plugin 'gerw/vim-latex-suite'
 
   " Python
-  Plugin 'klen/python-mode'
+  " Plugin 'klen/python-mode'
   " Plugin 'vim-scripts/Efficient-python-folding'
 
   " MPIDE - arduino
-  Plugin 'jplaut/vim-arduino-ino'
+  " Plugin 'jplaut/vim-arduino-ino'
 
   " Coffee
-  Plugin 'kchmck/vim-coffee-script'
+  " Plugin 'kchmck/vim-coffee-script'
 
 call vundle#end()
 
