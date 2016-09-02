@@ -36,7 +36,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vi
 # unzip -o LanguageTool-2.6.zip
 # mv LanguageTool-2.6 ${HOME}/.vim/progExt/
 # rm -rf LanguageTool-2.6*
-# vim +PluginInstall +qall
+vim +PluginInstall +qall
 
 sudo ln -s ${HOME}/.vim /root/.vim
 sudo ln -s ${HOME}/.vimrc /root/.vimrc
