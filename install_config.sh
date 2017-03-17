@@ -70,5 +70,6 @@ sudo ln -s ${HOME}/.screenrc /root/.screenrc
 cd ${startingDir}
 
 sudo cp script/rmate.sh /usr/local/bin/rsub
+sudo chmod +x /usr/local/bin/rsub
 
 cd ${startingDir}
