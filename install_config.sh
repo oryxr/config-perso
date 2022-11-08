@@ -10,8 +10,8 @@ rm ${HOME}/.vimrc
 rm -rf ${HOME}/.vim
 
 #create symlinks to the configuration files
-ln -s ${PWD}/vim/.vimrc ${HOME}/.vimrc
-ln -s ${PWD}/vim/.vim ${HOME}/.vim
+cp ${PWD}/vim/.vimrc ${HOME}/.vimrc
+cp -r ${PWD}/vim/.vim ${HOME}/.vim
 
 #install the software that manages the plugins for vim
 mkdir ${HOME}/.vim/bundle
@@ -38,8 +38,8 @@ git clone https://github.com/gmarik/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vi
 # rm -rf LanguageTool-2.6*
 vim +PluginInstall +qall
 
-sudo ln -s ${HOME}/.vim /root/.vim
-sudo ln -s ${HOME}/.vimrc /root/.vimrc
+sudo cp -r ${HOME}/.vim /root/.vim
+sudo cp ${HOME}/.vimrc /root/.vimrc
 
 cd ${startingDir}
 
@@ -57,19 +57,19 @@ sudo cp ${PWD}/zsh/config_admin/zlogin /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zlogout /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/dir_colors /etc/
 
-sudo ln -s ${HOME}/.zshrc /root/.zshrc
+sudo cp ${HOME}/.zshrc /root/.zshrc
 
 cd ${startingDir}
 
 ## Config screen
 sudo apt-get install -y screen
 rm ${HOME}/.screenrc
-ln -s ${PWD}/screen/.screenrc ${HOME}/.screenrc
-sudo ln -s ${HOME}/.screenrc /root/.screenrc
+cp ${PWD}/screen/.screenrc ${HOME}/.screenrc
+sudo cp ${HOME}/.screenrc /root/.screenrc
 
 cd ${startingDir}
 
-sudo cp script/rmate.sh /usr/local/bin/rsub
-sudo chmod +x /usr/local/bin/rsub
+#sudo cp script/rmate.sh /usr/local/bin/rsub
+#sudo chmod +x /usr/local/bin/rsub
 
-cd ${startingDir}
+#cd ${startingDir}
