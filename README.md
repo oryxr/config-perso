@@ -2,7 +2,7 @@ Installation
 ============
 cd
 
-git clone https://github.com/oryxr/config-perso.git ~/
+git clone https://github.com/oryxr/config-perso.git
 
 cd config_perso
 
