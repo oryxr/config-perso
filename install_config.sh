@@ -2,9 +2,9 @@
 
 startingDir=${PWD}
 
-sudo apt-get update
+sudo apt update
 ## Config vim
-sudo apt-get install -y vim-gtk
+sudo apt install -y vim-gtk
 #delete old configuration files
 rm ${HOME}/.vimrc
 rm -rf ${HOME}/.vim
@@ -50,7 +50,7 @@ rm ${HOME}/.zshrc
 #create symlinks to the configuration files
 ln -s ${PWD}/zsh/.zshrc ${HOME}/.zshrc
 sudo git clone https://github.com/olivierverdier/zsh-git-prompt.git /opt/zsh-git-prompt
-sudo apt-get install -y zsh
+sudo apt install -y zsh
 sudo cp ${PWD}/zsh/config_admin/zshrc /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zshenv /etc/zsh/
 sudo cp ${PWD}/zsh/config_admin/zlogin /etc/zsh/
@@ -62,7 +62,7 @@ sudo cp ${HOME}/.zshrc /root/.zshrc
 cd ${startingDir}
 
 ## Config screen
-sudo apt-get install -y screen
+sudo apt install -y screen
 rm ${HOME}/.screenrc
 cp ${PWD}/screen/.screenrc ${HOME}/.screenrc
 sudo cp ${HOME}/.screenrc /root/.screenrc
