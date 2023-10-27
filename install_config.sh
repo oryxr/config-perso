@@ -72,4 +72,10 @@ cd ${startingDir}
 #sudo cp script/rmate.sh /usr/local/bin/rsub
 #sudo chmod +x /usr/local/bin/rsub
 
+## Install fail2ban
+cd ${startingDir}
+sudo apt install fail2ban
+sudo cp ${PWD}/fail2ban/jail.local /etc/fail2ban/jail.local
+sudo service fail2ban restart
+
 #cd ${startingDir}
