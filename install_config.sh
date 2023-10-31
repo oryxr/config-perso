@@ -59,6 +59,9 @@ sudo cp ${PWD}/zsh/config_admin/dir_colors /etc/
 
 sudo cp ${HOME}/.zshrc /root/.zshrc
 
+chsh -s /bin/zsh ${USER}
+chsh -s /bin/zsh root
+
 cd ${startingDir}
 
 ## Config screen
