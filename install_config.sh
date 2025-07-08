@@ -4,7 +4,7 @@ startingDir=${PWD}
 
 sudo apt update
 ## Config vim
-sudo apt install -y vim-gtk
+sudo apt install -y vim
 #delete old configuration files
 rm ${HOME}/.vimrc
 rm -rf ${HOME}/.vim
